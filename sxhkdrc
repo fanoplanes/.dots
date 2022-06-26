@@ -16,9 +16,6 @@ super + d
 Print
 	flameshot gui
 
-alt + e
-	emacsclient -c
-
 super + x
 	st -e nnn -ed
 # terminal emulator
