@@ -55,7 +55,7 @@ let g:airline_section_b = '%{strftime("%A %d/%m/%y %H:%M %Z")}'
 filetype plugin indent on
 
 " Allow saving of files as sudo when I forget to start vim using sudo.
-cnoremap W!! execute 'silent! write !doas tee % >/dev/null' <bar> edit!
+cnoremap W!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 "	Vimtex
 let g:vimtex_fold_enabled = 0

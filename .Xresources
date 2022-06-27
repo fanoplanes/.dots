@@ -58,7 +58,7 @@ Xft.lcdfilter:  lcddefault
 xterm*faceName: xft:FiraCode Nerd Font Mono:size=FONTSIZE
 URxvt*font:     xft:FiraCode Nerd Font Mono:size=FONTSIZE
 URxvt*boldFont: xft:FiraCode Nerd Font Mono:bold:size=FONTSIZE
-URxvt*letterSpace: 0
+URxvt*letterSpace: -1
 URxvt*visualBell: true
 URxvt*scrollBar: false
 URxvt*depth: 32
