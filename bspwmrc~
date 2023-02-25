@@ -24,3 +24,6 @@ bspc rule -a Fluffychat state=tiled
 
 polybar example &
 nitrogen --restore
+dunst &
+lxsession &
+picom -b &

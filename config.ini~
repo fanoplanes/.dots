@@ -78,7 +78,7 @@ module-margin-right = 0
 font-0 = monospace:pixelsize=12;1
 font-1 = Noto Color Emoji:scale=10;0
 font-2 = FiraCode Nerd Font:pixelsize=16;2
-font-3 = FiraCode Nerd Font:style=Bold:pixelsize=24;3
+font-3 = FiraCode Nerd Font:style=Bold:pixelsize=22;3
 
 modules-left = bspwm separator space xwindow
 modules-center = round-left date round-right

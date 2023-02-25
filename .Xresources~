@@ -54,7 +54,7 @@ Xft.hintstyle:  hintfull
 Xft.autohint:   0
 Xft.lcdfilter:  lcddefault
 
-#define FONTSIZE 13
+#define FONTSIZE 10
 xterm*faceName: xft:monospace:size=FONTSIZE,xft:Noto Color Emoji:size=FONTSIZE,xft:Noto Sans Symbols2:size=FONTSIZE,xft:unifont:size=FONTSIZE
 URxvt*font:     xft:monospace:size=FONTSIZE,xft:Noto Color Emoji:size=FONTSIZE,xft:Noto Sans Symbols2:size=FONTSIZE,xft:unifont:size=FONTSIZE
 URxvt*boldFont: xft:monospace:bold:size=FONTSIZE,xft:Noto Color Emoji:size=FONTSIZE,xft:Noto Sans Symbols2:size=FONTSIZE,xft:unifont:size=FONTSIZE

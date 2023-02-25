@@ -34,4 +34,4 @@ fi
 
 xsetroot -cursor_name left_ptr 
 numlockx &
-exec bspwm
+exec startlxqt
