@@ -23,7 +23,7 @@ set encoding=utf-8
 set termguicolors
 syntax on
 set cursorline
-colorscheme base16-onedark
+colorscheme base16-grayscale-dark
 set hidden
 set incsearch
 set hlsearch

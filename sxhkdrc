@@ -1,14 +1,11 @@
 #
 # wm independent hotkeys
 
-alt + e
-	emacsclient -nc
-
 super + shift + x
 	physlock
 
 super + shift + f
-	librewolf
+	firefox
 
 super + e
 	alacritty -e gomuks
@@ -27,9 +24,6 @@ super + x
 # terminal emulator
 super + Return
 	alacritty
-
-super + alt + t
-	thunderbird
 
 # program launcher
 super + space
