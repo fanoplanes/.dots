@@ -1,12 +1,6 @@
-call plug#begin()
-Plug 'chriskempson/base16-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-call plug#end()
-
 set nocompatible
 
-colorscheme base16-onedark
+colorscheme unokai
 
 set number
 set mouse=a
