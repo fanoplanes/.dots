@@ -1,6 +1,6 @@
 set nocompatible
 
-colorscheme unokai
+colorscheme evening
 
 set number
 set mouse=a

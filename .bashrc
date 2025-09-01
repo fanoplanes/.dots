@@ -11,6 +11,10 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
 fi
 export PATH
 
+if [ -f "$HOME/.config/emacs/bin/doom" ]; then
+    PATH="$HOME/.config/emacs/bin:$PATH"
+fi
+
 export ALTERNATE_EDITOR=''
 export VISUAL='emacs-lucid -nw'
 alias edit='emacs-lucid -nw'
