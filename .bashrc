@@ -16,14 +16,18 @@ if [ -f "$HOME/.config/emacs/bin/doom" ]; then
 fi
 
 export ALTERNATE_EDITOR=''
-export VISUAL='emacs-lucid -nw'
-alias edit='emacs-lucid -nw'
+export VISUAL='emacs -nw'
+alias edit='emacs -nw'
 alias e='edit'
 alias se='sudoedit'
 
 alias pg='racket /home/fanoplanes/.local/bin/test-internet.rkt'
 
 export RANGER_LOAD_DEFAULT_RC="FALSE"
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+PS1='[\u@\h \W]\$ '
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
