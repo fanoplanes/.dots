@@ -1,6 +1,6 @@
 set nocompatible
 
-colorscheme evening
+colorscheme desert
 
 set number
 set mouse=a

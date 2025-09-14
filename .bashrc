@@ -27,7 +27,8 @@ export RANGER_LOAD_DEFAULT_RC="FALSE"
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-PS1='[\u@\h \W]\$ '
+
+source /usr/share/gentoo-color-bash/10-gentoo-color.bash
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=

@@ -9,12 +9,17 @@
 ;; (setq user-full-name "John Doe"
 ;;       user-mail-address "john@doe.com")
 
+;; Show battery status in the modeline.
 (display-battery-mode)
 
+;; Maximize Emacs on startup
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
+;; Remove decorations (title bar, buttons nonsense)
 (add-to-list 'default-frame-alist '(undecorated . t))
+;; Don't bother me with "really quit?" nonsense
 (setq confirm-kill-emacs nil)
 
+;; Hehe, I'm pulling a git repo of banners as a package, this selects a "vim" one for the dash.
 (setq fancy-splash-image "~/.config/emacs/.local/straight/repos/doom-banners/splashes/others/emacs-logo-vim.png")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
@@ -50,33 +55,28 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+;; Show icons, vc-state and file size in dirvish, also affects dired.
 (after! dirvish
   (setq dirvish-attributes
       (append
        ;; The order of these attributes is insignificant, they are always
        ;; displayed in the same position.
-       '(vc-state subtree-state nerd-icons)
+       '(vc-state nerd-icons)
        ;; Other attributes are displayed in the order they appear in this list.
        '(file-size))))
 
+;; Give dirvish more reasonable layout (not quite 50:50, but almost)
 (after! dirvish
   (setq dirvish-default-layout '(0 0 0.55)))
 
+;; Define feeds
 (after! elfeed
   (setq elfeed-feeds
         '(("https://www.sk-cert.sk/index.html%3Ffeed=rss" CERT security)
-          ("http://www.reddit.com/r/opensource/.rss" reddit)
           ("http://jeff.ecchi.ca/blog/feed/" blog)
           ("https://news.ycombinator.com/rss" hacker-news)
-          ("http://www.reddit.com/r/privacy/.rss" reddit)
-          ("http://www.reddit.com/r/i2p/.rss" reddit)
-          ("https://www.reddit.com/r/privacytoolsIO/.rss" reddit)
-          ("http://www.reddit.com/r/onions/.rss" reddit)
           ("http://www.archlinux.org/feeds/news/" linux)
           ("http://kernel.org/kdist/rss.xml" linux)
-          ("http://www.reddit.com/r/linux/.rss" reddit)
-          "http://queeranarchism.tumblr.com/rss"
-          ("http://www.reddit.com/r/Anarchism/.rss" reddit)
           ("https://xkcd.com/rss.xml" xkcd))))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
