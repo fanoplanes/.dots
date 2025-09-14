@@ -29,7 +29,7 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "monospace" :size 16 :weight 'regular)
+(setq doom-font (font-spec :family "Terminus" :size 22 :weight 'regular)
       doom-variable-pitch-font (font-spec :family "monospace" :size 15))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
@@ -61,6 +61,24 @@
 
 (after! dirvish
   (setq dirvish-default-layout '(0 0 0.55)))
+
+(after! elfeed
+  (setq elfeed-feeds
+        '(("https://www.sk-cert.sk/index.html%3Ffeed=rss" CERT security)
+          ("http://www.reddit.com/r/opensource/.rss" reddit)
+          ("http://jeff.ecchi.ca/blog/feed/" blog)
+          ("https://news.ycombinator.com/rss" hacker-news)
+          ("http://www.reddit.com/r/privacy/.rss" reddit)
+          ("http://www.reddit.com/r/i2p/.rss" reddit)
+          ("https://www.reddit.com/r/privacytoolsIO/.rss" reddit)
+          ("http://www.reddit.com/r/onions/.rss" reddit)
+          ("http://www.archlinux.org/feeds/news/" linux)
+          ("http://kernel.org/kdist/rss.xml" linux)
+          ("http://www.reddit.com/r/linux/.rss" reddit)
+          "http://queeranarchism.tumblr.com/rss"
+          ("http://www.reddit.com/r/Anarchism/.rss" reddit)
+          ("https://xkcd.com/rss.xml" xkcd))))
+
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;

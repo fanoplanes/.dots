@@ -1,0 +1,15 @@
+[window]
+decorations = "None"
+startup_mode = "Maximized"
+
+[bell]
+animation = "EaseOut"
+duration = 50
+color = "#404040"
+
+[font]
+size = 21
+normal = { family = "Terminess Nerd Font", style = "Regular" }
+bold = { style = "Bold" }
+italic = { style = "Italic" }
+bold_italic = { style = "Bold Italic" }
