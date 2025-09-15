@@ -22,6 +22,9 @@
 ;; Hehe, I'm pulling a git repo of banners as a package, this selects a "vim" one for the dash.
 (setq fancy-splash-image "~/.config/emacs/.local/straight/repos/doom-banners/splashes/others/emacs-logo-vim.png")
 
+;;set SPC r for rss
+(map! :leader :g "r" #'newsticker-show-news)
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
 ;; - `doom-font' -- the primary font to use
@@ -34,7 +37,8 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Terminess Nerd Font" :size 22))
+(setq doom-font (font-spec :family "Terminess Nerd Font" :size 22)
+      doom-variable-pitch-font (font-spec :family "Terminess Nerd Font Propo" :size 22))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -69,14 +73,14 @@
   (setq dirvish-default-layout '(0 0 0.55)))
 
 ;; Define feeds
-(after! elfeed
-  (setq elfeed-feeds
-        '(("https://www.sk-cert.sk/index.html%3Ffeed=rss" CERT security)
-          ("http://jeff.ecchi.ca/blog/feed/" blog)
-          ("https://news.ycombinator.com/rss" hacker-news)
-          ("http://www.archlinux.org/feeds/news/" linux)
-          ("http://kernel.org/kdist/rss.xml" linux)
-          ("https://xkcd.com/rss.xml" xkcd))))
+(setq newsticker-url-list
+   '(("SK-CERT" "https://www.sk-cert.sk/index.html%3Ffeed=rss" nil nil nil)
+     ("Hacker News" "https://news.ycombinator.com/rss" nil nil nil)
+     ("Lobsters" "https://lobste.rs/rss" nil nil nil)
+     ("Arch News" "http://www.archlinux.org/feeds/news/" nil nil nil)
+     ("Kernel" "http://kernel.org/kdist/rss.xml" nil nil nil)
+     ("Quanta Magazine" "https://www.quantamagazine.org/feed/" nil nil nil)
+     ("XKCD" "https://xkcd.com/rss.xml" nil nil nil)))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
