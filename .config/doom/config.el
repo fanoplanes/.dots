@@ -38,7 +38,7 @@
 ;; accept. For example:
 ;;
 (setq doom-font (font-spec :family "Terminess Nerd Font" :size 22)
-      doom-variable-pitch-font (font-spec :family "Terminess Nerd Font Propo" :size 22))
+      doom-variable-pitch-font (font-spec :family "Terminess Nerd Font Propo" :size 20))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -58,19 +58,21 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
-;; Show icons, vc-state and file size in dirvish, also affects dired.
-(after! dirvish
-  (setq dirvish-attributes
-      (append
-       ;; The order of these attributes is insignificant, they are always
-       ;; displayed in the same position.
-       '(vc-state nerd-icons)
-       ;; Other attributes are displayed in the order they appear in this list.
-       '(file-size))))
-
 ;; Give dirvish more reasonable layout (not quite 50:50, but almost)
 (after! dirvish
   (setq dirvish-default-layout '(0 0 0.55)))
+
+;; redefine newsticker url browsing so that it doesn't automatically move to the next item
+(defun newsticker-treeview-browse-url-custom ()
+  "Call `browse-url' for the link of the item at point."
+  (interactive)
+  (with-current-buffer (newsticker--treeview-list-buffer)
+    (let ((url (get-text-property (point) :nt-link)))
+      (when url
+        (browse-url url)
+        (if newsticker-automatically-mark-visited-items-as-old
+            (newsticker-treeview-mark-item-old dont-proceed))))))
+(map! :map newsticker--treeview-url-keymap "RET" 'newsticker-treeview-browse-url-custom)
 
 ;; Define feeds
 (setq newsticker-url-list
@@ -80,6 +82,7 @@
      ("Arch News" "http://www.archlinux.org/feeds/news/" nil nil nil)
      ("Kernel" "http://kernel.org/kdist/rss.xml" nil nil nil)
      ("Quanta Magazine" "https://www.quantamagazine.org/feed/" nil nil nil)
+     ("sizeof(cat)" "https://sizeof.cat/index.xml" nil nil nil)
      ("XKCD" "https://xkcd.com/rss.xml" nil nil nil)))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
