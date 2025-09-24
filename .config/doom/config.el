@@ -36,9 +36,17 @@
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
-;;
-(setq doom-font (font-spec :family "Terminess Nerd Font" :size 22)
-      doom-variable-pitch-font (font-spec :family "Terminess Nerd Font Propo" :size 20))
+
+(setq helper-fontsize
+      (cond ((string= (system-name) "krabica") 20)
+            ((string= (system-name) "thinkpad") 18)
+            (t 18)))
+
+(setq doom-font (font-spec :family "Terminess Nerd Font"
+                           :size helper-fontsize)
+
+      doom-variable-pitch-font (font-spec :family "Terminess Nerd Font Propo"
+                                          :size helper-fontsize))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
