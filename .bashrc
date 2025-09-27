@@ -30,6 +30,8 @@ alias grep='grep --color=auto'
 
 source /usr/share/gentoo-color-bash/10-gentoo-color.bash
 
+export LFS=/home/fanoplanes/LFS
+
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
