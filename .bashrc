@@ -23,6 +23,10 @@ alias se='sudoedit'
 
 alias pg='racket /home/fanoplanes/.local/bin/test-internet.rkt'
 
+ugh () {
+    xdg-open https://duckduckgo.com/?q=linux+"$(fc -ln -2 | head -n 1 | awk "{print $1}")"
+}
+
 export RANGER_LOAD_DEFAULT_RC="FALSE"
 
 alias ls='ls --color=auto'
