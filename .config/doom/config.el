@@ -19,11 +19,35 @@
 ;; Don't bother me with "really quit?" nonsense
 (setq confirm-kill-emacs nil)
 
+(custom-set-faces 
+ '(newsticker-treeview-selection-face ((t (:inherit isearch)))))
+
 ;; Hehe, I'm pulling a git repo of banners as a package, this selects a "vim" one for the dash.
 (setq fancy-splash-image "~/.config/emacs/.local/straight/repos/doom-banners/splashes/others/emacs-logo-vim.png")
 
+(setq auth-source-gpg-encrypt-to '("5616BA908767BDB5"))
+
 ;;set SPC r for rss
 (map! :leader :g "r" #'newsticker-show-news)
+
+;; Mail
+;; Each path is relative to the path of the maildir you passed to mu
+(set-email-account! "tilde.team"
+                    '((mu4e-sent-folder       . "/Sent")
+                      (mu4e-drafts-folder     . "/Drafts")
+                      (mu4e-trash-folder      . "/Trash")
+                      (mu4e-refile-folder     . "/INBOX")
+                      (smtpmail-smtp-user     . "fanoplanes")
+                      (smtpmail-smtp-server   . "smtp.tilde.team")
+                      (user-mail-address      . "fanoplanes@tilde.team")
+                      (mu4e-compose-signature . "FanoPlanes")
+                      (smtpmail-smtp-service  . 465)
+                      (smtpmail-stream-type   . ssl)
+                      (smtpmail-servers-requiring-authorization . "smtp\\.tilde\\.team"))
+                    t)
+
+(after! mu4e
+  (setq mu4e-get-mail-command "offlineimap -o"))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -42,11 +66,8 @@
             ((string= (system-name) "thinkpad") 18)
             (t 18)))
 
-(setq doom-font (font-spec :family "Terminess Nerd Font"
-                           :size helper-fontsize)
-
-      doom-variable-pitch-font (font-spec :family "Terminess Nerd Font Propo"
-                                          :size helper-fontsize))
+(setq doom-font (font-spec :family "Terminess Nerd Font" :size helper-fontsize)
+      doom-variable-pitch-font (font-spec :family "Terminess Nerd Font Propo" :size helper-fontsize))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -84,14 +105,16 @@
 
 ;; Define feeds
 (setq newsticker-url-list
-   '(("SK-CERT" "https://www.sk-cert.sk/index.html%3Ffeed=rss" nil nil nil)
-     ("Hacker News" "https://news.ycombinator.com/rss" nil nil nil)
-     ("Lobsters" "https://lobste.rs/rss" nil nil nil)
-     ("Arch News" "http://www.archlinux.org/feeds/news/" nil nil nil)
-     ("Kernel" "http://kernel.org/kdist/rss.xml" nil nil nil)
-     ("Quanta Magazine" "https://www.quantamagazine.org/feed/" nil nil nil)
-     ("sizeof(cat)" "https://sizeof.cat/index.xml" nil nil nil)
-     ("XKCD" "https://xkcd.com/rss.xml" nil nil nil)))
+      '(("SK-CERT" "https://www.sk-cert.sk/index.html%3Ffeed=rss" nil nil nil)
+        ("Hacker News" "https://news.ycombinator.com/rss" nil nil nil)
+        ("Lobsters" "https://lobste.rs/rss" nil nil nil)
+        ("Arch News" "http://www.archlinux.org/feeds/news/" nil nil nil)
+        ("Kernel" "http://kernel.org/kdist/rss.xml" nil nil nil)
+        ("LWN" "https://lwn.net/headlines/rss" nil nil nil)
+        ("System Crafters News" "https://systemcrafters.net/rss/news.xml" nil nil nil)
+        ("Quanta Magazine" "https://www.quantamagazine.org/feed/" nil nil nil)
+        ("sizeof(cat)" "https://sizeof.cat/index.xml" nil nil nil)
+        ("XKCD" "https://xkcd.com/rss.xml" nil nil nil)))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.

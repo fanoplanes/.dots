@@ -1,0 +1,22 @@
+# Sample minimal config file.  Copy this to ~/.offlineimaprc and edit to
+# get started fast.
+
+[general]
+accounts = tilde
+pythonfile = ~/.config/offlineimap/offlineimap.py
+
+[Account tilde]
+localrepository = tilde-local
+remoterepository = tilde-remote
+
+[Repository tilde-local]
+type = Maildir
+localfolders = ~/Mail/tilde
+
+[Repository tilde-remote]
+type = IMAP
+remotehost = imap.tilde.team
+remoteport = 993
+remoteuser = fanoplanes
+remotepasseval = get_pass()
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
