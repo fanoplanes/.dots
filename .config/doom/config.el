@@ -47,7 +47,8 @@
                     t)
 
 (after! mu4e
-  (setq mu4e-get-mail-command "offlineimap -o"))
+  (setq mu4e-get-mail-command "offlineimap -o")
+  (setq mu4e-update-interval 60))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -100,8 +101,19 @@
       (when url
         (browse-url url)
         (if newsticker-automatically-mark-visited-items-as-old
-            (newsticker-treeview-mark-item-old dont-proceed))))))
+            (newsticker-treeview-mark-item-old 'dont-proceed))))))
 (map! :map newsticker--treeview-url-keymap "RET" 'newsticker-treeview-browse-url-custom)
+
+(defun custom-newsticker-copy-url ()
+  "Copy URL of the item."
+  (interactive)
+  (with-current-buffer (newsticker--treeview-list-buffer)
+    (let ((url (get-text-property (point) :nt-link)))
+      (when url
+        (kill-new url)
+        (if newsticker-automatically-mark-visited-items-as-old
+            (newsticker-treeview-mark-item-old 'dont-proceed))))))
+(map! :map newsticker--treeview-url-keymap "yy" 'custom-newsticker-copy-url)
 
 ;; Define feeds
 (setq newsticker-url-list
