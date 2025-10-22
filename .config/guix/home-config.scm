@@ -44,6 +44,8 @@
                   "fzf"
                   "graphviz"
                   "guile"
+                  "guile-gcrypt"
+                  "guile-git"
                   "guile-readline"
                   "guile-colorized"
                   "htop"
