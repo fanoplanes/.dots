@@ -30,6 +30,9 @@
 ;;set SPC r for rss
 (map! :leader :g "r" #'newsticker-show-news)
 
+;;set a keybind for guix
+(map! :leader :desc "Open minibuffer for interacting with guix." :prefix "o" :g "g"  #'guix)
+
 ;; Mail
 ;; Each path is relative to the path of the maildir you passed to mu
 (set-email-account! "tilde.team"

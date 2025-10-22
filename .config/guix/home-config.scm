@@ -1,40 +1,70 @@
 (use-modules (gnu)
              (gnu home)
+             (web client)
              (gnu home services shells))
 
+(call-with-output-file "/home/fanoplanes/.config/10-gentoo-color.bash"
+  (lambda (port)
+    (display (cadr (call-with-values
+                       (lambda ()
+                         (http-get "https://gitweb.gentoo.org/repo/gentoo.git/plain/app-shells/bash/files/bashrc.d/10-gentoo-color-r2.bash"))
+                     list))
+             port)))
+
 (define %gentoo-PS1
- (plain-file "gentoo-PS1.sh"
-  "source /usr/share/gentoo-color-bash/10-gentoo-color.bash"))
+  (plain-file "gentoo-PS1.sh"
+              "source /home/fanoplanes/.config/10-gentoo-color.bash"))
 
 (define %ugh
- (plain-file "ugh.sh"
-  "ugh () {
+  (plain-file "ugh.sh"
+              "ugh () {
     xdg-open https://duckduckgo.com/?q=linux+\"$(fc -ln -2 | head -n 1 | awk \"{print $1}\")\"
    }"))
 
 (define %doom
- (plain-file "doom-to-path.sh"
-  "if [ -f \"$HOME/.config/emacs/bin/doom\" ]; then
+  (plain-file "doom-to-path.sh"
+              "if [ -f \"$HOME/.config/emacs/bin/doom\" ]; then
      PATH=\"$HOME/.config/emacs/bin:$PATH\"
    fi"))
 
 (home-environment
  (packages (specifications->packages
-            (list "emacs"
-                  "emacs-lsp-booster"
-                  "pandoc"
-                  "offlineimap3"
-                  "mu"
-                  "icecat"
+            (list "alacritty"
+                  "aria2"
+                  "aspell"
+                  "aspell-dict-en"
                   "btop"
-                  "librewolf"
-                  "nss-certs"
-                  "ripgrep"
-                  "fd"
                   "elinks"
+                  "emacs"
+                  "emacs-lsp-booster"
+                  "fastfetch"
+                  "fd"
+                  "ffmpegthumbnailer"
+                  "font-terminus"
+                  "fzf"
+                  "graphviz"
+                  "guile"
+                  "guile-readline"
+                  "guile-colorized"
+                  "htop"
+                  "icecat"
+                  "libreoffice"
+                  "librewolf"
+                  "lynis"
+                  "mediainfo"
+                  "mpv"
+                  "mu"
+                  "nss-certs"
+                  "offlineimap3"
+                  "pandoc"
                   "racket"
+                  "ripgrep"
                   "sbcl"
-                  "guile")))
+                  "shellcheck"
+                  "shfmt"
+                  "stow"
+                  "tmux"
+                  "yt-dlp")))
 
  (services (list (service home-bash-service-type
                           (home-bash-configuration
