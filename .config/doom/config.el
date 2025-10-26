@@ -121,6 +121,7 @@
 ;; Define feeds
 (setq newsticker-url-list
       '(("SK-CERT" "https://www.sk-cert.sk/index.html%3Ffeed=rss" nil nil nil)
+        ("Maurycy's blog" "https://maurycyz.com/index.xml" nil nil nil)
         ("Hacker News" "https://news.ycombinator.com/rss" nil nil nil)
         ("Lobsters" "https://lobste.rs/rss" nil nil nil)
         ("Arch News" "http://www.archlinux.org/feeds/news/" nil nil nil)

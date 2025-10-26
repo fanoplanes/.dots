@@ -46,6 +46,7 @@
                   "guile"
                   "guile-gcrypt"
                   "guile-git"
+                  "guile-gnutls"
                   "guile-readline"
                   "guile-colorized"
                   "htop"
