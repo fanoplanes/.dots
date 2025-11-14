@@ -78,5 +78,6 @@
                                       ("se" . "sudoedit")
                                       ("ls" . "ls --color=auto")
                                       ("grep" . "grep --color=auto")
-                                      ("pg" . "/home/fanoplanes/.local/bin/test-internet.rkt")))
+                                      ("pg" . "/home/fanoplanes/.local/bin/test-internet.rkt")
+                                      ("jbl" . "/home/fanoplanes/.local/bin/headphones.sh")))
                            (bashrc (list %doom %ugh %gentoo-PS1)))))))

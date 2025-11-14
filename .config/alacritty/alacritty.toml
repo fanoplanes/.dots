@@ -9,7 +9,7 @@ color = "#404040"
 
 [font]
 size = 18
-normal = { family = "Terminus", style = "Regular" }
+normal = { family = "Terminess Nerd Font", style = "Regular" }
 bold = { style = "Bold" }
 # italic = { style = "Italic" }
 # bold_italic = { style = "Bold Italic" }

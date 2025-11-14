@@ -71,7 +71,7 @@
             (t 18)))
 
 (setq doom-font (font-spec :family "Terminess Nerd Font" :size helper-fontsize)
-      doom-variable-pitch-font (font-spec :family "Terminess Nerd Font Propo" :size helper-fontsize))
+      doom-variable-pitch-font (font-spec :family "sans" :size helper-fontsize))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -81,7 +81,28 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+;;(setq doom-theme 'doom-one)
+
+;; Modus config block
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'modus-themes)
+
+(setq custom-modus-overrides
+        '((string green-warmer)
+          (comment fg-ochre)))
+
+(setq modus-themes-common-palette-overrides
+      (append custom-modus-overrides
+              modus-themes-common-palette-overrides))
+
+(setq modus-themes-bold-constructs nil
+      modus-themes-italic-constructs nil)
+
+(modus-themes-load-theme 'modus-vivendi)
+(define-key global-map (kbd "<f5>") #'modus-themes-toggle)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(setq +doom-dashboard-banner-padding '(1 . 4))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
